@@ -1,2 +1,18 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<!-- <main>
+	<section class="hero"></section>
+</main>
+
+<style lang="scss">
+	@import "$lib/styles/variables.scss";
+
+	main {
+		@include size(100%, fit-content);
+		padding-inline: 80px;
+		max-width: 1280px;
+	}
+	.hero {
+		@include size(100%, 600px);
+		background-image: url("$lib/assets/home/desktop/image-hero-coffeepress.jpg");
+		background-size: cover;
+	}
+</style> -->
