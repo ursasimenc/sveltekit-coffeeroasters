@@ -1,3 +1,8 @@
+<script>
+	import { fade } from "svelte/transition";
+	let mobileNav = false;
+</script>
+
 <header>
 	<nav>
 		<div class="logo">
@@ -13,11 +18,37 @@
 				></a
 			>
 		</div>
-		<ul>
+		<ul class="desktop-nav">
 			<li><a href="/">Home</a></li>
 			<li><a href="/about">About us</a></li>
 			<li><a href="/plan">Create your plan</a></li>
 		</ul>
+		{#if mobileNav}
+			<ul class="mobile-nav" transition:fade>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About us</a></li>
+				<li><a href="/plan">Create your plan</a></li>
+			</ul>
+		{/if}
+		<div
+			class="hamburger"
+			aria-expanded="{mobileNav}"
+			on:click="{() => {
+				mobileNav = !mobileNav;
+			}}"
+			on:keydown="{(e) => {
+				if (e.key === 'Enter') {
+					mobileNav = !mobileNav;
+				}
+			}}"
+			role="button"
+			tabindex="0"
+		>
+			<svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"
+				><path d="M14.5 12a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13zm0-6a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13zm0-6a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13z" fill="#333D4B" fill-rule="evenodd"
+				></path></svg
+			>
+		</div>
 	</nav>
 </header>
 
@@ -76,20 +107,25 @@
 	@import "$lib/styles/variables.scss";
 
 	:global(body) {
+		@include flex($direction: column);
 		margin: 0;
 		background-color: $bg;
-		padding-inline: 80px;
-		@include flex($direction: column);
+		color: $bg;
+		overflow: hidden;
+		scroll-behavior: smooth;
+		overflow-y: auto;
 	}
 
 	header {
 		@include size();
 		@include flex();
 		max-width: 1280px;
+		padding-bottom: 8px;
 
 		nav {
 			@include flex($justify: space-between);
-			@include size($height: 90px);
+			@include size($height: fit-content);
+			padding-block: 40px;
 		}
 	}
 
@@ -116,10 +152,9 @@
 		@include size($height: fit-content);
 		background-color: $darkGreyBlue;
 		max-width: 1280px;
+		margin-block: 50px;
 
 		.links {
-			@include flex();
-
 			.logo {
 				padding: 0;
 			}
@@ -134,8 +169,7 @@
 		}
 
 		.icons {
-			@include flex($justify: space-between);
-			@include size($width: 150px);
+			@include size($width: fit-content, $height: fit-content);
 
 			svg path {
 				@include transition($property: fill);
@@ -148,6 +182,10 @@
 	}
 
 	@media (width >= $desktop) {
+		:global(body) {
+			padding-inline: 80px;
+		}
+
 		footer {
 			padding-block: 45px;
 			@include flex($justify: space-between);
@@ -155,20 +193,84 @@
 
 		.links {
 			padding-left: 85px;
+			@include flex($gap: 2.5rem);
 		}
 
 		.icons {
 			padding-right: 85px;
+			@include flex($gap: 1.5rem);
+		}
+
+		.hamburger {
+			display: none;
 		}
 	}
 
-	@media (width < $desktop) {
+	@media ($tablet < width < $desktop) {
+		:global(body) {
+			padding-inline: 40px;
+		}
 		footer {
 			padding-block: 50px;
-			@include flex($direction: column, $gap: 1.5rem);
+			@include flex($direction: column, $gap: 2.5rem);
 			.links {
-				@include flex($direction: column, $justify: center, $align: center);
+				@include flex($direction: column, $justify: center, $align: center, $gap: 2.5rem);
 			}
+
+			.icons {
+				@include flex($gap: 2.5rem);
+			}
+		}
+
+		.hamburger {
+			display: none;
+		}
+	}
+
+	@media (width < $tablet) {
+		.desktop-nav {
+			display: none;
+		}
+
+		.mobile-nav {
+			@include flex(start, center, column, 33px);
+			@include size(100vw, 100vh);
+			position: absolute;
+			top: 105px;
+			left: 50%;
+			translate: -50%;
+			padding: 2rem;
+			background: linear-gradient(0deg, transparent, $bg 650px);
+
+			a {
+				@include h4();
+				color: $darkGreyBlue;
+			}
+		}
+
+		:global(body) {
+			padding-inline: 24px;
+		}
+		footer {
+			padding-block: 50px;
+			@include flex($direction: column, $gap: 2.5rem);
+			.links {
+				@include flex($direction: column, $justify: center, $align: center, $gap: 2.5rem);
+				ul {
+					@include flex($direction: column, $justify: center, $align: center, $gap: 2rem);
+				}
+			}
+
+			.icons {
+				@include flex($gap: 2.5rem);
+			}
+		}
+
+		.hamburger {
+			@include size(27px);
+			@include flex($justify: end);
+			aspect-ratio: 1;
+			cursor: pointer;
 		}
 	}
 </style>
