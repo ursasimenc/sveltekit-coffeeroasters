@@ -240,7 +240,7 @@
 			left: 50%;
 			translate: -50%;
 			padding: 2rem;
-			background: linear-gradient(0deg, transparent, $bg 650px);
+			background: linear-gradient(0deg, transparent, $bg calc(100% - 300px));
 
 			a {
 				@include h4();
