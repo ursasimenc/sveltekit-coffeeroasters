@@ -5,6 +5,10 @@
 	import danche from "$lib/assets/home/desktop/image-danche.png";
 </script>
 
+<svelte:head>
+	<title>coffeeroasters</title>
+</svelte:head>
+
 <main>
 	<section class="hero">
 		<h1>Great coffee made simple.</h1>
