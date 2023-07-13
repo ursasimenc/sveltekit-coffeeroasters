@@ -7,11 +7,9 @@
 
 <main>
 	<section class="hero">
-		<div>
-			<h1>Great coffee made simple.</h1>
-			<p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
-			<button><a href="/plan">Create your plan</a></button>
-		</div>
+		<h1>Great coffee made simple.</h1>
+		<p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
+		<button><a href="/plan">Create your plan</a></button>
 	</section>
 	<section class="collection">
 		<h2 class="title">our collection</h2>
@@ -100,6 +98,46 @@
 			</div>
 		</div>
 	</section>
+	<section class="how">
+		<h4>How it works</h4>
+		<div class="steps">
+			<div class="step">
+				<div class="bar">
+					<div class="circle"></div>
+					<div class="line"></div>
+				</div>
+				<div class="step-text">
+					<h2>01</h2>
+					<h4>Pick your coffee</h4>
+					<p>
+						Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.
+					</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="bar">
+					<div class="circle"></div>
+					<div class="line"></div>
+				</div>
+				<div class="step-text">
+					<h2>02</h2>
+					<h4>Choose the frequency</h4>
+					<p>Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="bar">
+					<div class="circle"></div>
+				</div>
+				<div class="step-text">
+					<h2>03</h2>
+					<h4>Receive and enjoy!</h4>
+					<p>We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.</p>
+				</div>
+			</div>
+		</div>
+		<button><a href="/plan">Create your plan</a></button>
+	</section>
 </main>
 
 <style lang="scss">
@@ -115,87 +153,79 @@
 		}
 
 		@media (width < $tablet) {
-			gap: 40px;
+			gap: 120px;
 		}
 	}
 
 	.hero {
-		@include size(100%, 600px);
 		border-radius: 10px;
 
-		div {
-			@include size(100%, 100%);
+		button {
+			@include button();
 
-			button {
-				@include button();
-
-				a {
-					text-decoration: none;
-					color: $bg;
-				}
+			a {
+				text-decoration: none;
+				color: $bg;
 			}
 		}
 
 		@media (width >= $desktop) {
+			@include size(100%, 600px);
 			background-image: url("$lib/assets/home/desktop/image-hero-coffeepress.jpg");
 			background: contain no-repeat;
 			background-position: right;
-			div {
-				@include flex(center, start, column, 32px);
-				padding-left: 79px;
-				h1 {
-					@include h1();
-					max-width: 500px;
-				}
 
-				p {
-					@include p();
-					max-width: 400px;
-				}
+			@include flex(center, start, column, 32px);
+			padding-left: 79px;
+			h1 {
+				@include h1();
+				max-width: 500px;
+			}
+
+			p {
+				@include p();
+				max-width: 400px;
 			}
 		}
 
 		@media ($tablet < width < $desktop) {
+			@include flex(center, start, column, 32px);
 			@include size(100%, 500px);
 			background-image: url("$lib/assets/home/tablet/image-hero-coffeepress.jpg");
 			background: cover;
 			background-position: top right;
-			div {
-				@include flex(center, start, column, 32px);
-				padding-left: 79px;
 
-				h1 {
-					@include h1(48px, 48px);
-					max-width: 400px;
-				}
+			padding-left: 79px;
 
-				p {
-					@include p(15px);
-					max-width: 400px;
-				}
+			h1 {
+				@include h1(48px, 48px);
+				max-width: 400px;
+			}
+
+			p {
+				@include p(15px);
+				max-width: 400px;
 			}
 		}
 
 		@media (width < $tablet) {
 			@include size(100%, 500px);
+			@include flex(center, center, column, 32px);
 			background-image: url("$lib/assets/home/mobile/image-hero-coffeepress.jpg");
 			background: cover;
 			background-position: top right;
-			div {
-				@include flex(center, center, column, 32px);
-				padding: 1rem;
+			padding: 1rem;
 
-				h1 {
-					@include h1(40px, 40px);
-					max-width: 400px;
-					text-align: center;
-				}
+			h1 {
+				@include h1(40px, 40px);
+				max-width: 400px;
+				text-align: center;
+			}
 
-				p {
-					@include p(15px);
-					max-width: 400px;
-					text-align: center;
-				}
+			p {
+				@include p(15px);
+				max-width: 400px;
+				text-align: center;
 			}
 		}
 	}
@@ -496,6 +526,180 @@
 							max-width: 350px;
 						}
 					}
+				}
+			}
+		}
+	}
+
+	.how {
+		@include size(100%, 100%);
+		color: $darkGreyBlue;
+		h2 {
+			color: $paleOrange;
+		}
+		@media (width >= $desktop) {
+			@include flex(center, start, column, 60px);
+			& > h4 {
+				@include h4();
+				color: $grey;
+			}
+			.steps {
+				@include flex(center, center, row, 0);
+				@include size(100%, 100%);
+				.step {
+					@include flex(center, center, column, 60px);
+					@include size(100%, 100%);
+
+					.bar {
+						@include size(100%, auto);
+						@include flex(start);
+						.circle {
+							background-color: $bg;
+							border: 1px solid $darkCyan;
+							border-radius: 50%;
+							@include size(31px);
+							aspect-ratio: 1/1;
+						}
+
+						.line {
+							background-color: $paleOrange;
+							@include size(calc(100% - 31px), 1px);
+						}
+					}
+
+					.step-text {
+						@include flex(center, start, column, 32px);
+						@include size(100%, 100%);
+
+						h2 {
+							@include h1();
+						}
+
+						h4 {
+							@include h4();
+						}
+
+						p {
+							@include p();
+							@include size(300px, 130px);
+						}
+					}
+				}
+			}
+
+			button {
+				@include button();
+
+				a {
+					text-decoration: none;
+					color: $bg;
+				}
+			}
+		}
+		@media ($tablet < width < $desktop) {
+			@include flex(center, start, column, 60px);
+			& > h4 {
+				@include h4();
+				color: $grey;
+			}
+			.steps {
+				@include flex(center, start, row, 0);
+				@include size(100%, 100%);
+
+				.step {
+					@include flex(center, start, column, 60px);
+					@include size(100%, 100%);
+
+					.bar {
+						@include size(100%, auto);
+						@include flex(start);
+						.circle {
+							background-color: $bg;
+							border: 1px solid $darkCyan;
+							border-radius: 50%;
+							@include size(31px);
+							aspect-ratio: 1/1;
+						}
+
+						.line {
+							background-color: $paleOrange;
+							@include size(calc(100% - 31px), 1px);
+						}
+					}
+
+					.step-text {
+						@include flex(start, start, column, 32px);
+						@include size(80%, 100%);
+
+						h2 {
+							@include h1();
+						}
+
+						h4 {
+							@include h4();
+						}
+
+						p {
+							@include p();
+						}
+					}
+				}
+			}
+
+			button {
+				@include button();
+
+				a {
+					text-decoration: none;
+					color: $bg;
+				}
+			}
+		}
+		@media (width < $tablet) {
+			@include flex(center, center, column, 60px);
+
+			& > h4 {
+				@include h4();
+				color: $grey;
+			}
+			.steps {
+				@include flex(center, center, column, 60px);
+				@include size(100%, 100%);
+
+				.step {
+					@include flex(center, center, column, 60px);
+					@include size(100%, 100%);
+
+					.bar {
+						display: none;
+					}
+
+					.step-text {
+						@include flex(start, center, column, 32px);
+						@include size(85%, 100%);
+
+						h2 {
+							@include h1();
+						}
+
+						h4 {
+							@include h4(24px);
+						}
+
+						p {
+							@include p();
+							text-align: center;
+						}
+					}
+				}
+			}
+
+			button {
+				@include button();
+
+				a {
+					text-decoration: none;
+					color: $bg;
 				}
 			}
 		}

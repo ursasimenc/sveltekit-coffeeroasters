@@ -152,7 +152,7 @@
 		@include size($height: fit-content);
 		background-color: $darkGreyBlue;
 		max-width: 1280px;
-		margin-block: 50px;
+		margin-bottom: 50px;
 
 		.links {
 			.logo {
@@ -189,6 +189,7 @@
 		footer {
 			padding-block: 45px;
 			@include flex($justify: space-between);
+			margin-top: 200px;
 		}
 
 		.links {
@@ -211,6 +212,7 @@
 			padding-inline: 40px;
 		}
 		footer {
+			margin-top: 100px;
 			padding-block: 50px;
 			@include flex($direction: column, $gap: 2.5rem);
 			.links {
@@ -252,6 +254,7 @@
 			padding-inline: 24px;
 		}
 		footer {
+			margin-top: 50px;
 			padding-block: 50px;
 			@include flex($direction: column, $gap: 2.5rem);
 			.links {
