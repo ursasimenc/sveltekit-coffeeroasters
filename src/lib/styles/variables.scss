@@ -26,7 +26,7 @@ $desktop: 1230px;
 	transition: $property $duration $timing;
 }
 
-@mixin button() {
+@mixin button($size: large) {
 	color: #fefcf7;
 	font-family: Fraunces;
 	font-size: 18px;
@@ -35,7 +35,13 @@ $desktop: 1230px;
 	border: none;
 	cursor: pointer;
 	@include transition(background-color);
-	@include size(217px, 56px);
+
+	@if ($size == large) {
+		@include size(217px, 56px);
+	}
+	@elseif ($size == small) {
+		@include size(160px, 48px);
+	}
 
 	&:hover {
 		background-color: #66d2cf;

@@ -352,6 +352,7 @@
 		@media (width >= $desktop) {
 			@include size(100%, 100%);
 			@include flex(start, start, column, 72px);
+			padding-inline: 6rem;
 			& > h4 {
 				@include h4();
 				color: $grey;
@@ -380,6 +381,7 @@
 		@media ($tablet < width < $desktop) {
 			@include size(100%, 100%);
 			@include flex(start, start, column, 72px);
+			padding: 1.5rem;
 			& > h4 {
 				@include h4();
 				color: $grey;
