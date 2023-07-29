@@ -22,28 +22,28 @@
 			<div class="coffee">
 				<img src="{granEspresso}" alt="Gran Espresso" />
 				<div class="collection-text">
-					<h4>Gran Espresso</h4>
+					<h3>Gran Espresso</h3>
 					<p>Light and flavorful blend with cocoa and black pepper for an intense experience.</p>
 				</div>
 			</div>
 			<div class="coffee">
 				<img src="{planalto}" alt="Planalto" />
 				<div class="collection-text">
-					<h4>Planalto</h4>
+					<h3>Planalto</h3>
 					<p>Brazilian dark roast with rich and velvety body, and hints of fruits and nuts.</p>
 				</div>
 			</div>
 			<div class="coffee">
 				<img src="{piccollo}" alt="Piccollo" />
 				<div class="collection-text">
-					<h4>Piccollo</h4>
+					<h3>Piccollo</h3>
 					<p>Mild and smooth blend featuring notes of toasted almond and dried cherry.</p>
 				</div>
 			</div>
 			<div class="coffee">
 				<img src="{danche}" alt="Danche" />
 				<div class="collection-text">
-					<h4>Danche</h4>
+					<h3>Danche</h3>
 					<p>Ethiopian hand-harvested blend densely packed with vibrant fruit notes.</p>
 				</div>
 			</div>
@@ -367,7 +367,7 @@
 					.reason-text {
 						@include flex(center, center, column, 24px);
 
-						h4 {
+						h3 {
 							@include h4();
 						}
 
