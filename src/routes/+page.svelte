@@ -127,6 +127,7 @@
 		border-radius: 10px;
 
 		.plan-button {
+			@include flex();
 			@include button();
 			text-decoration: none;
 			color: $bg;
