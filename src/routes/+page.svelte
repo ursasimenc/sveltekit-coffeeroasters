@@ -14,7 +14,7 @@
 	<section class="hero">
 		<h1>Great coffee made simple.</h1>
 		<p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
-		<button><a href="/plan">Create your plan</a></button>
+		<a class="plan-button" href="/plan">Create your plan</a>
 	</section>
 	<section class="collection">
 		<h2 class="title">our collection</h2>
@@ -126,13 +126,10 @@
 	.hero {
 		border-radius: 10px;
 
-		button {
+		.plan-button {
 			@include button();
-
-			a {
-				text-decoration: none;
-				color: $bg;
-			}
+			text-decoration: none;
+			color: $bg;
 		}
 
 		@media (width >= $desktop) {
