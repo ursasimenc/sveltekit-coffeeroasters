@@ -15,7 +15,7 @@
 			</div>
 			<div class="step-text">
 				<h2>01</h2>
-				<h4>Pick your coffee</h4>
+				<h3>Pick your coffee</h3>
 				<p>Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.</p>
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 			</div>
 			<div class="step-text">
 				<h2>02</h2>
-				<h4>Choose the frequency</h4>
+				<h3>Choose the frequency</h3>
 				<p>Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.</p>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="step-text">
 				<h2>03</h2>
-				<h4>Receive and enjoy!</h4>
+				<h3>Receive and enjoy!</h3>
 				<p>We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.</p>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 
 		@media (width >= $desktop) {
 			@include flex(center, start, column, 60px);
-			& > h4 {
+			& > h3 {
 				@include h4();
 				color: $grey;
 			}
