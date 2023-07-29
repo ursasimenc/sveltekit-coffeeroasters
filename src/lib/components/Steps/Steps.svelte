@@ -42,7 +42,7 @@
 		</div>
 	</div>
 	{#if mode === "light"}
-		<button><a href="/plan">Create your plan</a></button>
+		<a class="plan-button" href="/plan">Create your plan</a>
 	{/if}
 </section>
 
@@ -106,13 +106,11 @@
 				}
 			}
 
-			button {
+			.plan-button {
+				@include flex();
 				@include button();
-
-				a {
-					text-decoration: none;
-					color: $bg;
-				}
+				text-decoration: none;
+				color: $bg;
 			}
 		}
 		@media ($tablet < width < $desktop) {
